@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orkun Tarlacı – Profesyonel Bilgisayar & IT Çözümleri</title>
-  <meta name="description" content="Beşiktaş'ta garantili bilgisayar tamiri, akıllı tahta kurulumu, sistem hızlandırma ve IT desteği. Hızlı, güvenilir ve yerinde servis.">
+  <meta name="description" content="Beşiktaş'ta bilgisayar bakımı, web sitesi tasarımı, akıllı tahta kurulumu ve IT desteği. Hızlı ve güvenilir servis.">
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   
@@ -362,8 +362,22 @@
     }
 
     /* --- PROJECTS --- */
+    /* Özel Grid Ayarı: Son elemanı ortalamak için Flexbox kullanıyoruz */
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Elemanları ortala */
+      gap: 2rem;
+    }
+    
     .project-card {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      /* Grid ile aynı genişlik davranışı için: */
+      width: 100%;
+      flex: 1 1 320px; /* Min 320px, Max büyüme serbest */
+      max-width: 400px; /* Çok aşırı genişlemeyi engellemek için opsiyonel */
+      
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 24px;
@@ -371,6 +385,7 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
     .project-card:hover {
       transform: translateY(-5px) scale(1.02);
@@ -385,6 +400,23 @@
     }
     .project-card:hover .project-icon { color: var(--accent); }
     
+    /* Click Incentive Text */
+    .click-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+    .project-card:hover .click-hint {
+      opacity: 1;
+      transform: translateX(5px);
+    }
+
     .project-link-icon {
       position: absolute; 
       top: 2rem; 
@@ -561,6 +593,9 @@
       .contact-methods { flex-direction: column; width: 100%; }
       .contact-item { width: 100%; flex-direction: row; justify-content: flex-start; padding: 1.5rem; }
       .contact-icon-lg { margin-right: 1rem; width: 50px; height: 50px; font-size: 1.5rem; }
+      
+      /* Projeler mobilde tam genişlik */
+      .project-card { max-width: 100%; }
     }
 
     /* --- ANIMATION --- */
@@ -656,29 +691,34 @@
         <div class="cards-grid">
           <div class="service-card fade-in-up delay-100">
             <div class="icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-            <h3>Tamir & Bakım</h3>
-            <p style="color:var(--text-muted); margin-top:0.8rem">Anakart tamiri, ekran değişimi, termal macun yenileme ve fan temizliği ile cihazınız ilk günkü hızına dönsün.</p>
+            <h3>Periyodik Bakım</h3>
+            <p style="color:var(--text-muted); margin-top:0.8rem">Isınma sorunlarına karşı termal macun yenileme, fan temizliği ve genel sistem bakımı ile cihaz ömrünü uzatın.</p>
           </div>
+          
           <div class="service-card fade-in-up delay-200">
             <div class="icon-box"><i class="fa-brands fa-windows"></i></div>
             <h3>Windows Optimizasyon</h3>
             <p style="color:var(--text-muted); margin-top:0.8rem">Format, driver kurulumları, gereksiz yazılım temizliği ve sistem hızlandırma işlemleri.</p>
           </div>
+          
           <div class="service-card fade-in-up delay-300">
             <div class="icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
             <h3>Akıllı Tahta Kurulumu</h3>
             <p style="color:var(--text-muted); margin-top:0.8rem">Okullar ve ofisler için akıllı tahta montajı, yazılım kurulumu ve kullanım eğitimi.</p>
           </div>
+          
           <div class="service-card fade-in-up delay-100">
-            <div class="icon-box"><i class="fa-solid fa-hard-drive"></i></div>
-            <h3>Veri Kurtarma & Yedek</h3>
-            <p style="color:var(--text-muted); margin-top:0.8rem">Silinen dosyaları kurtarma, disk klonlama (SSD'ye geçiş) ve otomatik yedekleme sistemleri.</p>
+            <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>Web Tasarım & Kurulum</h3>
+            <p style="color:var(--text-muted); margin-top:0.8rem">Kişisel blog, kurumsal firma sitesi veya e-ticaret. Sıfırdan anahtar teslim, mobil uyumlu web sitesi yapımı.</p>
           </div>
+          
           <div class="service-card fade-in-up delay-200">
             <div class="icon-box"><i class="fa-solid fa-virus-slash"></i></div>
             <h3>Virüs Temizleme</h3>
             <p style="color:var(--text-muted); margin-top:0.8rem">Fidye yazılımları, truva atları ve reklam virüslerini verilerinize zarar vermeden temizliyoruz.</p>
           </div>
+          
            <div class="service-card fade-in-up delay-300">
             <div class="icon-box"><i class="fa-solid fa-tags"></i></div>
             <h3>Yedek Parça Temini</h3>
@@ -718,7 +758,7 @@
           <p style="color:var(--text-muted); font-size:1.1rem">Geliştirdiğim bazı web tasarım ve arayüz çalışmaları.</p>
         </div>
         
-        <div class="cards-grid">
+        <div class="projects-grid">
           <a href="Siteler/akillitahtalar/index.html" target="_blank" class="project-card fade-in-up delay-100">
             <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
             <i class="fa-solid fa-chalkboard project-icon"></i>
@@ -726,6 +766,7 @@
             <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem">
               Okul ve eğitim kurumları için geliştirdiğim bilgilendirme arayüzü.
             </p>
+            <div class="click-hint">Projeyi İncele <i class="fa-solid fa-arrow-right"></i></div>
           </a>
 
           <a href="Siteler/Anime Site/index.html" target="_blank" class="project-card fade-in-up delay-200">
@@ -734,6 +775,7 @@
             <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem">
               Manga ve anime içerikleri için tasarlanmış modern, karanlık modlu web arayüzü.
             </p>
+             <div class="click-hint">Projeyi İncele <i class="fa-solid fa-arrow-right"></i></div>
           </a>
 
           <a href="Siteler/Fitness site/index.html" target="_blank" class="project-card fade-in-up delay-300">
@@ -742,6 +784,7 @@
             <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem">
               Spor salonu tanıtımı ve antrenman programları için dinamik web sitesi.
             </p>
+             <div class="click-hint">Projeyi İncele <i class="fa-solid fa-arrow-right"></i></div>
           </a>
 
           <a href="Siteler/SA Yapı İnşaat Site/index.html" target="_blank" class="project-card fade-in-up delay-100">
@@ -750,6 +793,7 @@
             <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem">
               İnşaat firması için kurumsal kimliği yansıtan profesyonel web sitesi tasarımı.
             </p>
+             <div class="click-hint">Projeyi İncele <i class="fa-solid fa-arrow-right"></i></div>
           </a>
         </div>
       </div>
